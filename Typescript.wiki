@@ -36,3 +36,34 @@ Example:
 - Control how the project is presented to the Typescript compiler.
 - Files to compile, excluded files, 
 
+==== Files ====
+- Preffer relative paths.
+- Paths are preserved after compilation.
+`./src/services/http.ts` -> `./src/services/http.js`
+The `.js` file will be generated where the input file was in the directory structure.
+If you provide a `outDir` path, it will follow the same directory structure, but
+starting from the provided `ourDir` path.
+
+==== Include and Exclude ====
+- Supports glob patterns to locate input files and to exclude some of them.
+- Exlude only works with files that were added by include.
+
+`
+// tsconfig.json
+{
+    "include": [
+        "a.ts",
+        "src/*.ts"
+    ],
+    "exclude": [
+        "src/ignore.ts"
+    ]
+}
+`
+
+
+
+
+
+
+
