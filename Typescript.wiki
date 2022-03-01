@@ -1,0 +1,38 @@
+
+== skip lib check ==
+
+Commonly, a program includes many dependencies, which may include large declaration files, which usually are checked by their authors already. But, *the compiler* spends a lot of time *checking* these declarations again anyway, so, large programs may take a lot of time to compile. So, the idea behind this option is to *shorten* the compile time by avoiding type checks of these declarations. 
+
+--skipLibCheck forces the compiler to skip type checking all declaration files.
+
+Enabling the `skipLibCheck` option instructs the compiler to skip type checking of all declaration (*.d.ts) files. This includes the *.d.ts files from the node_modules directory and your custom *.d.ts files
+
+
+== tsconfig.json ==
+
+"Understanding Typescript's Compilation Process"
+https://medium.com/jspoint/typescript-compilation-the-typescript-compiler-4cb15f7244bc
+
+**tsc** (Typescript compiler) needs a JSON configuration file.
+When you run the `tsc` command in a directory, Typescript compiler looks for the
+`tsconfig.json` file in the current directory and if it doesn't find one, then
+it *keeps looking up* the directory tree until it find one. 
+The directory where the `tsconfig.json` is located is considered the root of
+the project.
+
+The `--project` flag can provide the path to the `tsconfig.json` file.
+If you want, you can use a different for this file when using this flag.
+
+Example:
+`tsc --project ./config/tsconfig.cjs.json`
+
+=== structure of `tsconfig.json` ===
+
+- Supports *JSON5* specifications, you can use comments, single quotes.
+- Contains root-level options and compilerOptions.
+
+*Root-level options*
+
+- Control how the project is presented to the Typescript compiler.
+- Files to compile, excluded files, 
+
