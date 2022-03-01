@@ -1,0 +1,19 @@
+= Webpack =
+
+How to debug Webpack compiler options:
+`
+plugins: [
+	{
+		apply(compiler) {
+			compiler.hooks.beforeRun.tapAsync(
+				'MyCustomPlugin',
+				function (compiler, callback) {
+					console.log(compiler.options);
+					callback();
+				}
+			);
+		},
+	},
+],
+
+`
