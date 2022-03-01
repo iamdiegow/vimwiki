@@ -60,6 +60,10 @@ starting from the provided `ourDir` path.
     ]
 }
 `
+- `node_modules` folder is automatically excluded.
+- imports of files that are not included in the compilation target will be 
+included as well. If a included files is importing some excluded file, Typescript
+will included that file and ignore that it was previoulsly excluded.
 
 
 
